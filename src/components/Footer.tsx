@@ -29,8 +29,8 @@ const Footer: React.FC = () => {
   const socialLinks = [
     { name: "LINKEDIN", url: "https://www.linkedin.com/in/sujay-korde/", icon: <FiLinkedin /> },
     { name: "GITHUB", url: "https://github.com/Sujay-korde", icon: <FiGithub /> },
-    { name: "EMAIL", url: "mailto:me.knishant@gmail.com", icon: <FiMail /> },
-    { name: "INSTAGRAM", url: "https://www.instagram.com/me.nishant_18/", icon: <FiInstagram /> },
+    { name: "EMAIL", url: "mailto:sujaykorde04@gmail.com", icon: <FiMail /> },
+    //{ name: "INSTAGRAM", url: "https://www.instagram.com/me.nishant_18/", icon: <FiInstagram /> },
   ];
 
   const navLinks = [
@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
           <div>
             <Link to="/" onClick={scrollToTop} className="block group">
               <div className="flex items-center text-4xl sm:text-4xl md:text-3xl lg:text-4xl tracking-tighter">
-                <span className="text-red-600 font-bold">KUMAR</span>
-                <span className="font-light ml-2 dark:text-white">NISHANT</span>
+                <span className="text-red-600 font-bold">KORDE</span>
+                <span className="font-light ml-2 dark:text-white">SUJAY</span>
                 <span className="text-red-600 font-bold ml-1">.</span>
               </div>
             </Link>
