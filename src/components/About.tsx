@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FiCornerDownRight } from 'react-icons/fi';
@@ -11,81 +11,6 @@ const AwardWinningAbout: React.FC = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
-    const stackContainerRef = useRef<HTMLDivElement>(null);
-    const lastTimeRef = useRef<number>(0);
-    const [isTouch, setIsTouch] = useState(false);
-
-    // --- Image array for the trail effect ---
-    const images = Array.from({ length: 10 }, (_, i) => `/images/${i + 1}.png`);
-
-    // --- Effect for Touch Detection only ---
-    useEffect(() => {
-        const checkTouch = () => {
-            setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
-        };
-        checkTouch();
-        window.addEventListener('resize', checkTouch);
-        return () => window.removeEventListener('resize', checkTouch);
-    }, []);
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const now = Date.now();
-        if (now - lastTimeRef.current < 50) return;
-        lastTimeRef.current = now;
-
-        if (!sectionRef.current || !stackContainerRef.current) return;
-
-        const rect = sectionRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const segment = rect.width / images.length;
-        const index = Math.min(Math.floor(x / segment), images.length - 1);
-
-        const img = document.createElement('img');
-        img.src = images[index];
-        img.alt = `Trail image ${index}`;
-        img.className = 'absolute w-24 h-40 object-cover grayscale brightness-125 contrast-125 border border-black dark:border-white pointer-events-none z-[60]';
-        img.style.left = `${x}px`;
-        img.style.top = `${y}px`;
-        img.style.transform = `translate(-50%, -50%) scale(0.8)`;
-        img.style.opacity = '0';
-
-        stackContainerRef.current.appendChild(img);
-
-        gsap.to(img, {
-            opacity: 0.8,
-            scale: 1,
-            rotation: gsap.utils.random(-5, 5),
-            duration: 0.2,
-            ease: 'power2.out',
-            onComplete: () => {
-                gsap.to(img, {
-                    opacity: 0,
-                    scale: 0.5,
-                    duration: 0.3,
-                    ease: 'power2.in',
-                    onComplete: () => img.remove()
-                });
-            }
-        });
-    };
-
-    const handleMouseLeave = () => {
-        if (!stackContainerRef.current) return;
-        gsap.to(stackContainerRef.current.children, {
-            opacity: 0,
-            scale: 0.5,
-            duration: 0.3,
-            ease: "power2.in",
-            stagger: 0.05,
-            onComplete: () => {
-                if (stackContainerRef.current) {
-                    stackContainerRef.current.innerHTML = '';
-                }
-            }
-        });
-    };
 
     // --- Stats Typing/Counting Animation ---
     useEffect(() => {
@@ -183,9 +108,7 @@ const AwardWinningAbout: React.FC = () => {
         <section
             ref={sectionRef}
             id="about"
-            onMouseMove={!isTouch ? handleMouseMove : undefined}
-            onMouseLeave={!isTouch ? handleMouseLeave : undefined}
-            className="relative font-sans py-24 md:py-32 overflow-visible cursor-crosshair min-h-75vh flex flex-col justify-center"
+            className="relative font-sans py-24 md:py-32 overflow-visible min-h-75vh flex flex-col justify-center"
         >
             {/* --- Swiss Grid Background --- */}
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -208,9 +131,6 @@ const AwardWinningAbout: React.FC = () => {
                     ))}
                 </div>
             </div>
-
-            {/* --- Image Trail Container --- */}
-            {!isTouch && <div ref={stackContainerRef} className="absolute inset-0 z-[50] pointer-events-none" />}
 
             {/* --- Main Content --- */}
             <div ref={contentRef} className="relative z-10 max-w-[1800px] mx-auto w-full px-6 md:px-12">
