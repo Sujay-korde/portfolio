@@ -2,6 +2,7 @@ import React from 'react';
 // 1. Keep the original intact in your files for safety
 // import Hero from '../components/Hero';
 import DynamicHero from '../components/DynamicHero'; // 2. Import your new component
+import HeroQuote from '../components/HeroQuote';
 import About from '../components/About';
 import Skills from '../components/Skills';
 import BlogSection from '../components/BlogSection';
@@ -22,6 +23,7 @@ const Home: React.FC<HomeProps> = ({ startAnimation = false }) => {
       {/* 3. Swap the old hero element with your parallel sandbox asset */}
       {/* <Hero startAnimation={startAnimation} /> */}
       <DynamicHero />
+      <HeroQuote />
       
       {/* All subsequent data modules stay alive in the document layout stream */}
       <About />

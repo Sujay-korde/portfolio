@@ -179,9 +179,9 @@ export default function DynamicHero() {
           </div>
 
           {/* Intro Headline */}
-          <h1 className="text-xl md:text-2xl font-light mb-2 text-zinc-600 dark:text-zinc-400 tracking-tight">
+          <p className="text-xl md:text-2xl font-light mb-2 text-zinc-600 dark:text-zinc-400 tracking-tight">
             Hello! I'm <span className="text-black dark:text-zinc-200 font-semibold">Sujay Korde</span>. A Creative Full-Stack
-          </h1>
+          </p>
 
           {/* DYNAMIC TEXT NODE */}
           <div className="h-24 md:h-32 flex items-center justify-center my-2 overflow-hidden relative w-full">
