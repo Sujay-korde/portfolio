@@ -532,7 +532,7 @@ export default function Hero() {
           >
             {/* BOTTOM LAYER: Philosophical Quote (Default) */}
             <div className="quote-default">
-              In a world where complexity is inevitable and failure is expected, engineering is the act of preparation.
+              In a world drowning in abstractions, true mastery is forcing computing systems to execute logic cleanly from raw zero.
             </div>
 
             {/* TOP LAYER: Reality Check Quote (Revealed via Red Circle Mask) */}
@@ -552,8 +552,7 @@ export default function Hero() {
                 zIndex: 100,
               }}
             >
-              In a world where deadlines are tomorrow and bugs are ‘minor’, engineering is damage control.
-            </motion.div>
+            In a world of pre-trained weights and wrapper interfaces, engineering is building things from scratch.            </motion.div>
           </div>
         </motion.div>
 
