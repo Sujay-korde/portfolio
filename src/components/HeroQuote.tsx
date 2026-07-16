@@ -25,6 +25,10 @@ const HeroQuote: React.FC = () => {
   return (
     <section className="relative bg-[#F9FAFB] dark:bg-black text-black dark:text-white py-16 md:py-20 overflow-hidden">
       <style>{`
+
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;500;600&family=Syncopate:wght@400;700&display=swap');
+        @import url('https://fonts.cdnfonts.com/css/aileron');
+        
         .hero-quote-container {
           display: flex;
           align-items: flex-end;
@@ -42,7 +46,7 @@ const HeroQuote: React.FC = () => {
           position: relative;
           width: 29vw;
           text-align: right;
-          font-family: 'Aileron', 'Inter', sans-serif;
+          font-family: 'Aileron', 'Inter',sans-serif;
           font-size: clamp(20px, 2.6vw, 44px);
           line-height: 1.1;
           letter-spacing: 0.02em;

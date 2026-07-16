@@ -1,7 +1,7 @@
 import React from 'react';
 // 1. Keep the original intact in your files for safety
 // import Hero from '../components/Hero';
-import DynamicHero from '../components/DynamicHero'; // 2. Import your new component
+import DynamicHero from '../components/dynamicHero'; // 2. Import your new component
 import HeroQuote from '../components/HeroQuote';
 import About from '../components/About';
 import Skills from '../components/Skills';
