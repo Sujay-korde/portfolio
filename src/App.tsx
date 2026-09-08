@@ -90,15 +90,6 @@ function App() {
         <Router>
           <TransitionProvider>
             <div className="relative bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen overflow-x-hidden">
-              <AnimatePresence mode="wait">
-                {loading && (
-                  <Loader
-                    key="loader"
-                    onExitStart={handleExitStart}
-                    onComplete={handleLoaderComplete}
-                  />
-                )}
-              </AnimatePresence>
               {loading && (
                 <Loader
                   key="loader"
