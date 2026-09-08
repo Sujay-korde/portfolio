@@ -72,14 +72,15 @@ function App() {
     };
   }, []);
 
+  // Handler for when loader curtain split exit begins
+  const handleExitStart = () => {
+    setShowContent(true);
+  };
+
   // Handler for when loader animation completes
   const handleLoaderComplete = () => {
-    // Start showing content immediately when loader exit begins
     setShowContent(true);
-    // Remove loader after animation completes
-    setTimeout(() => {
-      setLoading(false);
-    }, 100);
+    setLoading(false);
   };
 
   // Once loading is false, render the main application
@@ -90,8 +91,21 @@ function App() {
           <TransitionProvider>
             <div className="relative bg-gray-50 dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen overflow-x-hidden">
               <AnimatePresence mode="wait">
-                {loading && <Loader key="loader" onComplete={handleLoaderComplete} />}
+                {loading && (
+                  <Loader
+                    key="loader"
+                    onExitStart={handleExitStart}
+                    onComplete={handleLoaderComplete}
+                  />
+                )}
               </AnimatePresence>
+              {loading && (
+                <Loader
+                  key="loader"
+                  onExitStart={handleExitStart}
+                  onComplete={handleLoaderComplete}
+                />
+              )}
 
               {/* Main content - starts fading in when showContent is true */}
               <div
